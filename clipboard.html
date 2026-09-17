@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clipboard Test</title>
+</head>
+<body>
+  <h2>Clipboard Access</h2>
+  <button onclick="readClipboard()">Leer portapapeles</button>
+  <p id="output"></p>
+  <script>
+    async function readClipboard() {
+      try {
+        const text = await navigator.clipboard.readText();
+        document.getElementById("output").innerText = `Contenido: ${text}`;
+      } catch (err) {
+        document.getElementById("output").innerText = "Error accediendo al portapapeles.";
+      }
+    }
+  </script>
+</body>
+</html>
